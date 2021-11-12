@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Магический шар',
       theme: ThemeData.dark(),
       home: const MyHomePage(),
     );
@@ -28,22 +28,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int value = 1;
+  int value = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black38,
         appBar: AppBar(
-          title: Text("Магический шар"),
+          centerTitle: true,
+          title: const Text("Магический шар"),
         ),
         body: FlatButton(
           onPressed: () {
             setState(() {
-              value = Random().nextInt(3) + 1;
+              value = Random().nextInt(7) + 1;
             });
           },
           child: Center(
-            child: Container(
+            child: SizedBox(
                 height: double.infinity,
                 child: Image.asset("images/images$value.png")),
           ),
